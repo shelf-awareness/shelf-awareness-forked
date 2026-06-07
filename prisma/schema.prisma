@@ -1,0 +1,287 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum QuantityUnit {
+  G
+  OZ
+  LB
+  ML
+  CUP
+  ITEM
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password      String
+  displayName   String?   
+  pfpURL        String?  @default("https://i.pinimg.com/474x/13/74/20/137420f5b9c39bc911e472f5d20f053e.jpg")
+  role          Role     @default(USER)
+  emailVerified Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  budget        Decimal?  @db.Decimal(10, 2)
+  dietPref      DietaryCategory[]
+
+  // Daily macro targets (grams, except calories)
+  proteinGoal   Int?
+  carbsGoal     Int?
+  fatGoal       Int?
+  caloriesGoal  Int?
+
+  emailVerificationCodes EmailVerificationCode[]
+  passwordResetTokens    PasswordResetToken[]
+  savedRecipes SavedRecipe[]
+  RecipeUsage   RecipeUsage[]
+  recipeRatings RecipeRating[]
+}
+
+model EmailVerificationCode {
+  id        Int      @id @default(autoincrement())
+  code      String // store as string so you can handle leading zeros
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  used      Boolean  @default(false)
+
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model Produce {
+  id               Int       @id @default(autoincrement())
+  name             String
+  type             String
+  locationId       Int
+  storageId        Int
+  location         Location @relation(fields: [locationId], references: [id])
+  storage          Storage  @relation(fields: [storageId], references: [id])
+  proteinGrams     Float?
+
+  quantityValue Float
+  quantityUnit  QuantityUnit
+
+  expiration       DateTime?
+  owner            String
+  image            String?
+  restockThreshold Float?
+  restockTrigger   String   @default("empty")
+  customThreshold  Float?
+
+  @@unique([name, owner])
+}
+
+model Location {
+  id         Int        @id @default(autoincrement())
+  name       String
+  owner      String
+  address    String?    
+  latitude   Float?
+  longitude  Float?
+  storages   Storage[]
+  produces   Produce[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@unique([name, owner])
+}
+
+model Storage {
+  id          Int        @id @default(autoincrement())
+  name        String
+  locationId  Int
+  location    Location   @relation(fields: [locationId], references: [id])
+  produces    Produce[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@unique([name, locationId])
+}
+
+model ShoppingList {
+  id        Int      @id @default(autoincrement())
+  name      String
+  owner     String // email, username, or household name
+  createdAt DateTime @default(now())
+
+  items ShoppingListItem[]
+
+  @@unique([name, owner])
+}
+
+model ShoppingListItem {
+  id              Int      @id @default(autoincrement())
+  shoppingListId  Int
+  name            String // name of the item (not linked to pantry)
+  proteinGrams    Float?   // grams of protein per unit
+
+  quantityValue Float
+  quantityUnit  QuantityUnit?
+
+  price           Decimal? @db.Decimal(10, 2)
+  restockTrigger  String?
+  customThreshold Float?
+
+  shoppingList ShoppingList @relation(fields: [shoppingListId], references: [id])
+
+  @@unique([shoppingListId, name])
+}
+
+enum DietaryCategory {
+  VEGAN
+  VEGETARIAN
+  KETO
+  GLUTEN_FREE
+  HIGH_PROTEIN
+  LOW_CARB
+}
+
+model Recipe {
+  id              Int       @id @default(autoincrement())
+  title           String
+  description     String?
+  imageUrl        String?
+  cuisine         String
+  dietary         DietaryCategory[]   // e.g., ["Vegan","Gluten-Free"]
+  ingredientItems RecipeIngredient[]
+  owner           String?
+
+  // Add these fields (nullable to match existing rows)
+  instructions    String?    @db.Text
+  servings        Int?
+  prepMinutes     Int?
+  cookMinutes     Int?
+  sourceUrl       String?
+  proteinGrams    Int?
+  carbsGrams      Int?
+  fatGrams        Int?
+
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  recipeImage     RecipeImage[]
+  savedBy SavedRecipe[]
+  usages          RecipeUsage[]
+  ratings RecipeRating[]
+
+  @@unique([title, owner], name: "title_owner")
+  @@index([title])
+  @@index([cuisine])
+}
+
+model RecipeIngredient {
+  id        Int      @id @default(autoincrement())
+  recipeId  Int
+  recipe    Recipe   @relation(fields: [recipeId], references: [id])
+
+  name      String
+
+  quantityValue Float?
+  quantityUnit  QuantityUnit?
+
+  order     Int?
+  substitutes  String?
+
+  @@index([recipeId])
+}
+
+model IngredientSubstitution {
+  id Int @id @default(autoincrement())
+
+  fromName String
+  toName   String
+
+  owner    String?
+
+  createdAt DateTime @default(now())
+
+  @@index([fromName])
+  @@index([toName])
+  @@unique([fromName, toName, owner])
+}
+
+model RecipeImage {
+  id        Int      @id @default(autoincrement())
+  recipeId  Int
+  recipe    Recipe   @relation(fields: [recipeId], references: [id])
+
+  userEmail String
+  url       String @db.Text // store base64
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model SavedRecipe {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  recipeId  Int
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, recipeId]) // prevents saving same recipe twice
+  @@index([userId])
+  @@index([recipeId])
+}
+
+model RecipeUsage {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  recipeId   Int
+  count      Int      @default(0)
+  lastUsedAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, recipeId])
+  @@index([userId])
+  @@index([recipeId])
+}
+
+model RecipeRating {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  recipeId   Int
+  rating     Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, recipeId])
+  @@index([userId])
+  @@index([recipeId])
+}
+
+model MigrationTest {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}

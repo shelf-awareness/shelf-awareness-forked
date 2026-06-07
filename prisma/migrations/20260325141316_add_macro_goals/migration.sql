@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN "caloriesGoal" INTEGER;
+ALTER TABLE "User" ADD COLUMN "carbsGoal" INTEGER;
+ALTER TABLE "User" ADD COLUMN "fatGoal" INTEGER;
+ALTER TABLE "User" ADD COLUMN "proteinGoal" INTEGER;

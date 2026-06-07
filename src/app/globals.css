@@ -1,0 +1,244 @@
+:root {
+  --timberwolf: #DAD7CD; /* Light grayish yellow */
+  --sage: #A3B18A;       /* Muted green */
+  --fern-green: #588157; /* Deep green */
+  --hunter-green: #3A5A40; /* Dark green */
+  --brunswick-green: #344E41; /* Very dark green */
+  --light-blue: #0D98BA; /* blue green */
+  --azure-blue: #007FFF; /* Bright blue */
+  --prussian-blue: #1E3A5F; /* Dark blue */
+  
+}
+
+html,
+body {
+  --bs-light-rgb: 236, 236, 236;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: var(--timberwolf);
+
+  /* Mobile Friendly application */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--timberwolf);
+}
+
+.navandfooter {
+  background-color: var(--light-blue);
+  color: white;
+  padding: 1rem;
+}
+
+/* Default nav/link colors (use classes, not IDs) */
+.navandfooter .nav-link,
+.navandfooter .navbar-brand,
+.navandfooter .dropdown-toggle {
+  color: white !important;
+}
+
+/* Hover state */
+.navandfooter .nav-link:hover,
+.navandfooter .navbar-brand:hover {
+  color: #d4af37 !important;
+}
+
+/* Active state (links + brand on home) */
+.navandfooter .nav-link.active,
+.navandfooter .nav-item.show .nav-link,
+.navandfooter .nav-link.show,
+.navandfooter .navbar-brand.active {
+  color: #d4af37 !important;
+  font-weight: 700 !important;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.card {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardimage {
+  border-radius: 5px;
+  max-height: 200px;
+  object-fit: cover;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.editbutton {
+  background-color: var(--sage);
+  border: none;
+  &:hover {
+    background-color: var(--prussian-blue);
+  }
+}
+
+.deletebutton {
+  background-color: var(--fern-green);
+  border: none;
+  &:hover {
+    background-color: var(--prussian-blue);
+  }
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+}
+
+/* Default nav/link colors (use classes, not IDs) */
+.pantry-controls .nav-link,
+.pantry-controls .navbar-brand,
+.pantry-controls .dropdown-toggle {
+  color: var(--prussian-blue) !important;
+  font-weight: 700 !important;
+}
+
+/* Hover state */
+.pantry-controls .nav-link:hover,
+.pantry-controls .navbar-brand:hover {
+  color: var(--prussian-blue) !important;
+  background-color: var(--sage) !important;
+}
+
+/* Active state (links + brand on home) */
+.pantry-controls .nav-link.active,
+.pantry-controls .nav-item.show .nav-link,
+.pantry-controls .nav-link.show,
+.pantry-controls .navbar-brand.active {
+  color: #d4af37 !important;
+  background-color: var(--light-blue) !important;
+}
+
+.recipe-card {
+  border: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+}
+
+.recipe-card-img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.recipe-title {
+  margin-bottom: .35rem;
+  font-weight: 600;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.clickable-card:hover {
+  cursor: pointer;
+}
+
+/* for mobile devices */
+@media (max-width: 576px) {
+  .mobile-section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .mobile-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-top: 2rem;
+  }
+
+  .mobile-card {
+    padding: 2rem 1rem;
+  }
+
+  /*adjusts search bar bottom margin on mobile for add shopping list page*/
+  .mobile-search {
+    margin-bottom: 1.5rem;
+  }
+
+  /*adjusts action buttons on shopping list cards for mobile*/
+  .mobile-actions {
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+  }
+
+  .mobile-view {
+    width: auto !important;     
+    flex: 1 1 auto !important;
+    min-width: 0 !important;    
+  }
+
+  .mobile-trash {
+    flex: 0 0 44px !important;
+  }
+  }
+
+  .saved-card-wrap.is-edit .recipe-card {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0;
+}
+
+.saved-card-footer {
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-top: 0;
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+
+/* Sidebar portion for the user's profile page */
+.profile-sidebar {
+  background-color: #A1A1A1;
+}
+
+.swal-button.swal-btn-azure {
+  background-color: #0078D4 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.swal-button.swal-btn-azure:hover {
+  background-color: #106EBE !important;
+}
+
+.swal-button.swal-btn-azure:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 120, 212, 0.4) !important;
+}
+
+.swal-button.swal-btn-cancel {
+  background-color: #e9ecef !important;
+  color: #212529 !important;
+  border: none !important;
+}

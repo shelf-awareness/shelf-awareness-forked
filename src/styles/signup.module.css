@@ -1,0 +1,193 @@
+/* Page container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--timberwolf);
+  padding: 20px;
+}
+
+/* Form wrapper */
+.formWrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Title styling */
+.title {
+  font-size: 1.8rem;
+  color: var(--prussian-blue);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Description styling */
+.descriptionCentered {
+  font-size: 1rem;
+  color: var(--light-blue);
+  margin: 10px 0 20px;
+}
+
+/* Input group wrapper */
+.inputGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Label styling */
+.label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--prussian-blue);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+/* Input field styling */
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--light-blue);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: #fff;
+  color: var(--prussian-blue);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--azure-blue);
+  box-shadow: 0 0 5px rgba(58, 90, 64, 0.3);
+}
+
+/* Invalid input state */
+.invalid {
+  border-color: red;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+/* Success message styling */
+.success {
+  color: var(--light-blue);
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+/* Buttons */
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--azure-blue);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: var(--light-blue);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Centered account prompt wrapper */
+.accountPromptWrapper {
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: var(--prussian-blue);
+  text-align: center;
+}
+
+.logIn {
+  font-size: 0.85rem;
+  color: var(--light-blue);
+  margin-top: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logIn:hover {
+  text-decoration: underline;
+}
+
+.verificationPopup {
+  background-color: var(--timberwolf);
+  border: 2px solid var(--azure-blue);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.verificationPopup h2 {
+  font-size: 1.2rem;
+  color: var(--azure-blue);
+  margin-bottom: 10px;
+}
+
+.verificationPopup p {
+  color: var(--light-blue);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.resendButton {
+  margin-top: 10px;
+  width: auto;
+  padding: 8px 16px;
+  background-color: var(--azure-blue);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.resendButton:hover {
+  background-color: var(--azure-blue);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

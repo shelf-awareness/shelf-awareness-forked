@@ -1,0 +1,223 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--timberwolf);
+  padding: 20px;
+  position: relative;
+}
+
+/* Sign-in form */
+.formWrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: var(--prussian-blue);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.descriptionCentered {
+  font-size: 1rem;
+  color: var(--azure-blue);
+  margin: 10px 0 20px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--brunswick-green);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.forgotPassword a {
+  font-size: 0.85rem;
+  color: var(--fern-green);
+  text-decoration: none;
+}
+
+.forgotPassword a:hover {
+  text-decoration: underline;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--fern-green);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: #fff;
+  color: var(--brunswick-green);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--hunter-green);
+  box-shadow: 0 0 5px rgba(58, 90, 64, 0.3);
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--hunter-green);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: var(--fern-green);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.accountPromptWrapper {
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: var(--brunswick-green);
+  text-align: center;
+}
+
+.logIn {
+  font-size: 0.85rem;
+  color: var(--fern-green);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logIn:hover {
+  text-decoration: underline;
+}
+
+/* Verification popup */
+.verificationPopup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  animation: fadeIn 0.3s ease;
+  z-index: 2;
+}
+
+.verificationPopup h2 {
+  font-size: 1.6rem;
+  color: var(--hunter-green);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.verificationPopup p {
+  font-size: 1rem;
+  color: var(--fern-green);
+  margin-bottom: 15px;
+}
+
+.verificationPopup strong {
+  color: var(--hunter-green);
+}
+
+.verificationPopup .input {
+  margin-bottom: 12px;
+}
+
+.verificationPopup .button {
+  margin-top: 10px;
+}
+
+.resendButton {
+  margin-top: 8px;
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  color: var(--hunter-green);
+  border: 2px solid var(--hunter-green);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resendButton:hover {
+  background-color: var(--hunter-green);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.resendButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success & Error messages inside popup */
+.success {
+  color: green;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.invalid {
+  border-color: red !important;
+}
+
+/* Animation for popup */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

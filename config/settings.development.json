@@ -1,0 +1,555 @@
+{
+  "defaultAccounts": [
+    { "email": "admin@foo.com", "password": "changme", "role": "ADMIN", "verified": true, "verificationToken": "test-token-123" },
+    { "email": "john@foo.com", "password": "changeme", "role": "USER", "verified": true, "verificationToken": "test-token-123" }
+  ],
+  
+  "defaultProduce": [
+    {
+      "name": "Banana",
+      "type": "Fruit",
+      "location": "House 1",
+      "storage": "Pantry",
+      "quantity": 20,
+      "unit": "pcs",
+      "expiration": "2025-12-31T10:00:00.000Z",
+      "owner": "john@foo.com",
+      "image": "/banana.png",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Apple",
+      "type": "Fruit",
+      "location": "House 1",
+      "storage": "Pantry",
+      "quantity": 15,
+      "unit": "pieces",
+      "expiration": "2025-11-30T10:00:00.000Z",
+      "owner": "admin@foo.com",
+      "image": "/apple.png",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Carrot",
+      "type": "Vegetable",
+      "location": "House 2",
+      "storage": "Fridge",
+      "quantity": 10,
+      "unit": "pieces",
+      "expiration": "2025-10-15T10:00:00.000Z",
+      "owner": "admin@foo.com",
+      "image": "/carrot.png",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Broccoli",
+      "type": "Vegetable",
+      "location": "House 2",
+      "storage": "Fridge",
+      "quantity": 8,
+      "unit": "heads",
+      "expiration": "2025-10-10T10:00:00.000Z",
+      "owner": "john@foo.com",
+      "image": "/broccoli.png",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Chicken Breast",
+      "type": "Meat",
+      "location": "House 1",
+      "storage": "Freezer",
+      "quantity": 5,
+      "unit": "pieces",
+      "expiration": "2026-01-20T10:00:00.000Z",
+      "owner": "john@foo.com",
+      "image": "/chickenbreast.png",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Salmon Fillet",
+      "type": "Meat",
+      "location": "House 2",
+      "storage": "Freezer",
+      "quantity": 4,
+      "unit": "fillets",
+      "expiration": "2026-02-15T10:00:00.000Z",
+      "owner": "admin@foo.com",
+      "image": "/salmonfillet.png",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Bread",
+      "type": "Grain",
+      "location": "House 1",
+      "storage": "Pantry",
+      "quantity": 3,
+      "unit": "slices",
+      "expiration": null,
+      "owner": "admin@foo.com",
+      "image": "https://images.unsplash.com/photo-1598373182133-52452f7691ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MjIxOTB8MHwxfHNlYXJjaHwyfHxicmVhZHxlbnwxfHx8fDE3NjE2MDcyNzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Butter",
+      "type": "Dairy",
+      "location": "House 1",
+      "storage": "Fridge",
+      "quantity": 2,
+      "unit": "sticks",
+      "expiration": null,
+      "owner": "admin@foo.com",
+      "image": "https://images.unsplash.com/photo-1587185717368-4d92f8de4ad2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MjIxOTB8MHwxfHNlYXJjaHwxMXx8YnV0dGVyfGVufDF8fHx8MTc2MTYwNzI2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Cheese",
+      "type": "Dairy",
+      "location": "House 1",
+      "storage": "Fridge",
+      "quantity": 10,
+      "unit": "squares",
+      "expiration": null,
+      "owner": "admin@foo.com",
+      "image": "https://images.unsplash.com/photo-1683314573422-649a3c6ad784?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MjIxOTB8MHwxfHNlYXJjaHwxfHxjaGVlc2V8ZW58MXx8fHwxNzYxNTcxMDA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Salt",
+      "type": "Spice",
+      "location": "House 1",
+      "storage": "Pantry",
+      "quantity": 5,
+      "unit": "g",
+      "expiration": null,
+      "owner": "admin@foo.com",
+      "image": "https://images.unsplash.com/photo-1646722670581-974d084e0ec0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MjIxOTB8MHwxfHNlYXJjaHwyfHxzYWx0JTIwc2hha2VyfGVufDF8fHx8MTc2MTYwNzA4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    },
+    {
+      "name": "Chicken",
+      "type": "Meat",
+      "location": "House 1",
+      "storage": "Fridge",
+      "quantity": 3,
+      "unit": "breasts",
+      "expiration": "2025-11-06T10:00:00.000Z",
+      "owner": "admin@foo.com",
+      "image": "https://images.unsplash.com/photo-1587593810167-a84920ea0781?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MjIxOTB8MHwxfHNlYXJjaHwxMnx8Y2hpY2tlbiUyMGJyZWFzdHxlbnwxfHx8fDE3NjE2ODg2NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "restockThreshold": 1,
+      "restockTrigger": "empty"
+    }
+  ],
+
+  "defaultShoppingList": [
+    {
+      "name": "Weekly Groceries",
+      "owner": "john@foo.com",
+      "createdAt": "2025-10-26T12:15:12.630Z",
+      "items": [
+        { "name": "Banana", "quantity": 6, "unit": "pieces", "price": 0.5 },
+        { "name": "Apple", "quantity": 4, "unit": "pieces", "price": 0.75 },
+        { "name": "Carrot", "quantity": 3, "unit": "pieces", "price": 0.3 }
+      ]
+    },
+    {
+      "name": "Party Prep",
+      "owner": "john@foo.com",
+      "createdAt": "2025-10-26T12:15:16.346Z",
+      "items": [
+        { "name": "Broccoli", "quantity": 2, "unit": "heads", "price": 1.2 },
+        { "name": "Chicken Breast", "quantity": 2, "unit": "pieces", "price": 5.0 },
+        { "name": "Salmon Fillet", "quantity": 1, "unit": "fillets", "price": 7.5 }
+      ]
+    },
+    {
+      "name": "Party Prep",
+      "owner": "admin@foo.com",
+      "createdAt": "2025-10-27T03:30:48.980Z",
+      "items": [
+        { "name": "Broccoli", "quantity": 2, "unit": "heads", "price": 1.2 },
+        { "name": "Chicken Breast", "quantity": 2, "unit": "pieces", "price": 5.0 },
+        { "name": "Salmon Fillet", "quantity": 1, "unit": "fillets", "price": 7.5 }
+      ]
+    },
+    {
+      "name": "Auto Restock",
+      "owner": "john@foo.com",
+      "createdAt": "2025-10-28T03:29:56.404Z",
+      "items": [
+        { "name": "test", "quantity": 1, "unit": "oz", "price": null }
+      ]
+    }
+  ],
+
+  "defaultRecipes": [
+    {
+      "title": "Chicken Pot Pie",
+      "cuisine": "American",
+      "description": "A comforting chicken pot pie with tender chicken, carrots, peas and celery in a creamy sauce, topped with a flaky crust.",
+      "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F03%2F09%2F26317-chicken-pot-pie-mfs-481.jpg&w=160&q=60&c=sc&poi=auto&orient=true&h=90",
+      "dietary": ["Gluten-Free"],
+      "ingredients": [
+        "chicken breast",
+        "carrots",
+        "peas",
+        "celery",
+        "butter",
+        "onion",
+        "flour",
+        "salt",
+        "black pepper",
+        "chicken broth",
+        "milk",
+        "pie crusts"
+      ],
+      "ingredientItems": [
+        { "name": "chicken breast", "quantity": 2, "unit": "cups" },
+        { "name": "carrots", "quantity": 1.5, "unit": "cups" },
+        { "name": "peas", "quantity": 1, "unit": "cup" },
+        { "name": "celery", "quantity": 1, "unit": "cup" },
+        { "name": "butter", "quantity": 4, "unit": "tbsp" },
+        { "name": "onion", "quantity": 1, "unit": "medium" },
+        { "name": "flour", "quantity": 0.5, "unit": "cup" },
+        { "name": "salt", "quantity": 1, "unit": "tsp" },
+        { "name": "black pepper", "quantity": 0.5, "unit": "tsp" },
+        { "name": "chicken broth", "quantity": 2, "unit": "cups" },
+        { "name": "milk", "quantity": 1, "unit": "cup" },
+        { "name": "pie crusts", "quantity": 2, "unit": "crusts" }
+      ],
+      "instructions": "1. Preheat oven to 425°F (220°C).\n2. Combine chicken, carrots, peas and celery in a saucepan; add water to cover, boil 15 minutes then drain.\n3. In another saucepan melt butter, cook onion until translucent (5-7 min). Stir in flour, salt, pepper and celery seed.\n4. Gradually stir in chicken broth and milk, then simmer 5-10 minutes until thickened.\n5. Place chicken and vegetable mixture into bottom pie crust; pour in broth mixture.\n6. Cover with top crust, seal edges, cut slits in top to allow steam escape.\n7. Bake 30-35 minutes or until pastry is golden and filling is bubbly. Cool 10 minutes before serving.",
+      "servings": 8,
+      "prepMinutes": 20,
+      "cookMinutes": 50,
+      "sourceUrl": "https://www.allrecipes.com/recipe/26317/chicken-pot-pie-ix/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Chicken Katsu Curry",
+      "cuisine": "Japanese",
+      "description": "Crispy panko chicken cutlet with Japanese curry over rice.",
+      "imageUrl": "https://feedgrump.com/wp-content/uploads/2023/05/hawaii-chicken-katsu-curry-plating-feature-500x500.jpg",
+      "dietary": ["Dairy-Free"],
+      "ingredients": ["chicken thighs", "panko", "eggs", "flour", "oil", "onion", "carrot", "potato", "curry roux", "chicken stock", "rice"],
+      "ingredientItems": [
+        { "name": "chicken thighs", "quantity": 4, "unit": "pieces" },
+        { "name": "panko", "quantity": 1.5, "unit": "cups" },
+        { "name": "eggs", "quantity": 2, "unit": "eggs" },
+        { "name": "flour", "quantity": 0.75, "unit": "cup" },
+        { "name": "oil", "quantity": 0.5, "unit": "cup" },
+        { "name": "onion", "quantity": 1, "unit": "medium" },
+        { "name": "carrot", "quantity": 1, "unit": "medium" },
+        { "name": "potato", "quantity": 1, "unit": "medium" },
+        { "name": "curry roux", "quantity": 4, "unit": "blocks" },
+        { "name": "chicken stock", "quantity": 3, "unit": "cups" },
+        { "name": "rice", "quantity": 4, "unit": "servings" }
+      ],
+      "instructions": "1. Season chicken, dredge in flour, dip in beaten eggs, and coat in panko.\n2. Shallow-fry in 350°F (175°C) oil until golden and cooked through; drain on rack.\n3. For curry: sauté onion, carrot, and potato in a little oil until aromatic.\n4. Add chicken stock, simmer until vegetables are tender.\n5. Stir in curry roux blocks to thicken; simmer 5 minutes.\n6. Slice katsu, plate over steamed rice, ladle curry over the top.",
+      "servings": 4,
+      "prepMinutes": 20,
+      "cookMinutes": 25,
+      "sourceUrl": "https://japan.recipetineats.com/katsu-curry-japanese-curry-rice-with-chicken-cutlet/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Beef Wellington",
+      "cuisine": "British",
+      "description": "Tenderloin wrapped with mushroom duxelles, prosciutto, puff pastry.",
+      "imageUrl": "https://static01.nyt.com/images/2019/12/13/dining/mc-beef-wellington/mc-beef-wellington-mediumSquareAt3X-v2.jpg",
+      "dietary": ["Contains Dairy"],
+      "ingredients": ["beef tenderloin", "mushrooms", "shallots", "garlic", "thyme", "prosciutto", "puff pastry", "egg", "dijon mustard", "butter"],
+      "ingredientItems": [
+        { "name": "beef tenderloin", "quantity": 2.5, "unit": "lb" },
+        { "name": "mushrooms", "quantity": 1, "unit": "lb" },
+        { "name": "shallots", "quantity": 2, "unit": "medium" },
+        { "name": "garlic", "quantity": 3, "unit": "cloves" },
+        { "name": "thyme", "quantity": 1, "unit": "tbsp" },
+        { "name": "prosciutto", "quantity": 8, "unit": "slices" },
+        { "name": "puff pastry", "quantity": 1, "unit": "sheet" },
+        { "name": "egg", "quantity": 1, "unit": "egg" },
+        { "name": "dijon mustard", "quantity": 2, "unit": "tbsp" },
+        { "name": "butter", "quantity": 2, "unit": "tbsp" }
+      ],
+      "instructions": "1. Sear seasoned tenderloin in hot pan to brown; cool, then brush with Dijon.\n2. Chop mushrooms, shallots, garlic; cook down with butter and thyme until dry (duxelles); cool.\n3. On plastic wrap, lay prosciutto slices overlapping, spread duxelles on top.\n4. Place tenderloin on duxelles, roll tightly in prosciutto; chill 15–20 min.\n5. Wrap in puff pastry, seal, brush with egg wash; score decoratively.\n6. Bake at 400°F (205°C) until pastry is golden and center reads 125–130°F (52–54°C) for medium-rare; rest 10–15 min before slicing.",
+      "servings": 6,
+      "prepMinutes": 40,
+      "cookMinutes": 35,
+      "sourceUrl": "https://www.simplyrecipes.com/recipes/beef_wellington/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Chicken Enchiladas",
+      "cuisine": "Mexican",
+      "description": "Tortillas filled with shredded chicken, topped with enchilada sauce and cheese.",
+      "imageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/03/Easy-Chicken-Enchiladas_FT24_32264_JR_0312_3.jpg?fit=700%2C1024",
+      "dietary": ["Contains Dairy"],
+      "ingredients": ["corn tortillas", "shredded chicken", "enchilada sauce", "cheddar cheese", "onion", "cilantro", "cumin", "chili powder", "sour cream (optional)"],
+      "ingredientItems": [
+        { "name": "corn tortillas", "quantity": 8, "unit": "tortillas" },
+        { "name": "shredded chicken", "quantity": 2, "unit": "cups" },
+        { "name": "enchilada sauce", "quantity": 2, "unit": "cups" },
+        { "name": "cheddar cheese", "quantity": 2, "unit": "cups" },
+        { "name": "onion", "quantity": 0.5, "unit": "medium" },
+        { "name": "cilantro", "quantity": 0.25, "unit": "cup" },
+        { "name": "cumin", "quantity": 1, "unit": "tsp" },
+        { "name": "chili powder", "quantity": 1, "unit": "tsp" },
+        { "name": "sour cream (optional)", "quantity": 0.5, "unit": "cup" }
+      ],
+      "instructions": "1. Preheat oven to 375°F (190°C). Lightly oil a 9x13 pan.\n2. Mix shredded chicken with a bit of enchilada sauce, onion, cumin, and chili powder.\n3. Warm tortillas until pliable; fill with chicken mixture and a little cheese; roll and place seam-side down.\n4. Pour remaining sauce over, top with cheese.\n5. Bake 20–25 minutes until bubbly; rest 5 minutes, garnish with cilantro and optional sour cream.",
+      "servings": 4,
+      "prepMinutes": 20,
+      "cookMinutes": 25,
+      "sourceUrl": "https://www.isabeleats.com/red-chicken-enchiladas/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Spring Rolls",
+      "cuisine": "Vietnamese",
+      "description": "Crispy rolls with pork, shrimp, and veggies; serve with nuoc cham.",
+      "imageUrl": "https://themom100.com/wp-content/uploads/2024/01/vietnamese-spring-rolls-5580.jpg",
+      "dietary": ["Dairy-Free"],
+      "ingredients": ["spring roll wrappers", "ground pork", "shrimp", "cabbage", "carrot", "glass noodles", "garlic", "fish sauce", "oil"],
+      "ingredientItems": [
+        { "name": "spring roll wrappers", "quantity": 12, "unit": "wrappers" },
+        { "name": "ground pork", "quantity": 0.75, "unit": "lb" },
+        { "name": "shrimp", "quantity": 0.5, "unit": "lb" },
+        { "name": "cabbage", "quantity": 2, "unit": "cups" },
+        { "name": "carrot", "quantity": 1, "unit": "medium" },
+        { "name": "glass noodles", "quantity": 2, "unit": "oz" },
+        { "name": "garlic", "quantity": 3, "unit": "cloves" },
+        { "name": "fish sauce", "quantity": 2, "unit": "tbsp" },
+        { "name": "oil", "quantity": 0.5, "unit": "cup" }
+      ],
+      "instructions": "1. Soak glass noodles until softened; drain and cut.\n2. Mix ground pork with minced garlic, fish sauce, shredded cabbage, carrot, chopped shrimp, and noodles.\n3. Place mixture on wrapper, roll tightly, sealing edges.\n4. Fry at 350°F (175°C) until golden and crisp; drain.\n5. Serve hot with nuoc cham dipping sauce.",
+      "servings": 4,
+      "prepMinutes": 25,
+      "cookMinutes": 15,
+      "sourceUrl": "https://tastesbetterfromscratch.com/fresh-spring-rolls/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Loco Moco",
+      "cuisine": "Hawaiian",
+      "description": "Beef patty over rice, brown gravy, sunny-side egg.",
+      "imageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/EXPS_TOHD25_279299_NancyMock_07.jpg",
+      "dietary": ["Contains Dairy"],
+      "ingredients": ["ground beef", "rice", "onion", "beef stock", "butter", "flour", "egg"],
+      "ingredientItems": [
+        { "name": "ground beef", "quantity": 0.75, "unit": "lb" },
+        { "name": "rice", "quantity": 2, "unit": "cups cooked" },
+        { "name": "onion", "quantity": 0.5, "unit": "medium" },
+        { "name": "beef stock", "quantity": 2, "unit": "cups" },
+        { "name": "butter", "quantity": 2, "unit": "tbsp" },
+        { "name": "flour", "quantity": 2, "unit": "tbsp" },
+        { "name": "egg", "quantity": 2, "unit": "eggs" }
+      ],
+      "instructions": "1. Form seasoned beef patties; sear both sides until cooked to preference; keep warm.\n2. In same pan, melt butter; add sliced onion and cook until soft.\n3. Stir in flour to make a roux; cook 1–2 minutes.\n4. Whisk in beef stock gradually; simmer until thick gravy forms; season to taste.\n5. Fry eggs sunny-side up.\n6. Serve steamed rice topped with patty, gravy, and egg.",
+      "servings": 2,
+      "prepMinutes": 10,
+      "cookMinutes": 20,
+      "sourceUrl": "https://onohawaiianrecipes.com/recipes/a-classic-loco-moco/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Garlic Shrimp",
+      "cuisine": "Hawaiian",
+      "description": "Garlicky butter shrimp with rice and lemon.",
+      "imageUrl": "https://www.allrecipes.com/thmb/us00EX6PHgu4Dwfq9xfH6SyliA0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/220597-Simple-garlic-shrimp-beauty3x4_38539-63f687e1ec6a41e88dfb5a9c9021e194.jpg",
+      "dietary": ["Gluten-Free"],
+      "ingredients": ["shrimp", "garlic", "butter", "olive oil", "paprika", "lemon", "rice"],
+      "ingredientItems": [
+        { "name": "shrimp", "quantity": 1, "unit": "lb" },
+        { "name": "garlic", "quantity": 5, "unit": "cloves" },
+        { "name": "butter", "quantity": 4, "unit": "tbsp" },
+        { "name": "olive oil", "quantity": 2, "unit": "tbsp" },
+        { "name": "paprika", "quantity": 1, "unit": "tsp" },
+        { "name": "lemon", "quantity": 1, "unit": "lemon" },
+        { "name": "rice", "quantity": 4, "unit": "servings" }
+      ],
+      "instructions": "1. Pat shrimp dry; season lightly with salt, pepper, and paprika.\n2. Melt butter with a little olive oil; add minced garlic, cook fragrant (30–60 sec).\n3. Add shrimp; sauté 2–3 minutes per side until pink and opaque.\n4. Finish with lemon juice; adjust seasoning.\n5. Serve immediately over rice with extra lemon.",
+      "servings": 4,
+      "prepMinutes": 10,
+      "cookMinutes": 10,
+      "sourceUrl": "https://www.dinneratthezoo.com/garlic-butter-shrimp/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Pad Thai",
+      "cuisine": "Thai",
+      "description": "Stir-fried rice noodles with tamarind sauce, egg, tofu/shrimp, peanuts.",
+      "imageUrl": "https://inquiringchef.com/wp-content/uploads/2023/02/Authentic-Pad-Thai_square-1908.jpg",
+      "dietary": ["Contains Nuts"],
+      "ingredients": ["rice noodles", "tamarind", "fish sauce", "palm sugar", "egg", "tofu", "shrimp", "bean sprouts", "peanuts", "lime"],
+      "ingredientItems": [
+        { "name": "rice noodles", "quantity": 8, "unit": "oz" },
+        { "name": "tamarind", "quantity": 2, "unit": "tbsp" },
+        { "name": "fish sauce", "quantity": 3, "unit": "tbsp" },
+        { "name": "palm sugar", "quantity": 2, "unit": "tbsp" },
+        { "name": "egg", "quantity": 2, "unit": "eggs" },
+        { "name": "tofu", "quantity": 0.5, "unit": "lb" },
+        { "name": "shrimp", "quantity": 0.5, "unit": "lb" },
+        { "name": "bean sprouts", "quantity": 2, "unit": "cups" },
+        { "name": "peanuts", "quantity": 0.5, "unit": "cup" },
+        { "name": "lime", "quantity": 1, "unit": "lime" }
+      ],
+      "instructions": "1. Soak rice noodles in warm water until pliable; drain.\n2. Mix tamarind, fish sauce, and palm sugar to make sauce.\n3. Stir-fry tofu/shrimp briefly; push aside, scramble eggs.\n4. Add noodles and sauce; toss until coated and just tender.\n5. Add bean sprouts; toss 30–60 sec.\n6. Plate with crushed peanuts and lime wedges.",
+      "servings": 3,
+      "prepMinutes": 20,
+      "cookMinutes": 10,
+      "sourceUrl": "https://tastesbetterfromscratch.com/pad-thai/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Margherita Pizza",
+      "cuisine": "Italian",
+      "description": "Tomato, mozzarella, basil on thin crust.",
+      "imageUrl": "https://kitchenswagger.com/wp-content/uploads/2023/05/margherita-pizza-close.jpg",
+      "dietary": ["Vegetarian", "Contains Dairy"],
+      "ingredients": ["pizza dough", "san marzano tomatoes", "mozzarella", "basil", "olive oil", "salt"],
+      "ingredientItems": [
+        { "name": "pizza dough", "quantity": 1, "unit": "ball" },
+        { "name": "san marzano tomatoes", "quantity": 1, "unit": "cup crushed" },
+        { "name": "mozzarella", "quantity": 6, "unit": "oz" },
+        { "name": "basil", "quantity": 0.25, "unit": "cup leaves" },
+        { "name": "olive oil", "quantity": 2, "unit": "tbsp" },
+        { "name": "salt", "quantity": 0.5, "unit": "tsp" }
+      ],
+      "instructions": "1. Preheat oven with stone/steel to 500–550°F (260–290°C).\n2. Stretch dough thin; spread crushed San Marzano tomatoes lightly.\n3. Top with sliced mozzarella; drizzle olive oil; salt lightly.\n4. Bake 6–8 minutes until crust is blistered and cheese melted.\n5. Add fresh basil leaves after baking; slice and serve.",
+      "servings": 2,
+      "prepMinutes": 15,
+      "cookMinutes": 8,
+      "sourceUrl": "https://bellyfull.net/classic-margherita-pizza/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Butter Chicken",
+      "cuisine": "Indian",
+      "description": "Creamy tomato-butter sauce with spiced chicken.",
+      "imageUrl": "https://www.allrecipes.com/thmb/8L5gq8V7Kyl3qfoDe5vhCU_rvZI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-141169-Easy-Indian-Butter-Chicken-DDMFS-4x3-beauty-588ff54d1e0f4a0788906e851e27d540.jpg",
+      "dietary": ["Contains Dairy", "Gluten-Free"],
+      "ingredients": ["chicken", "yogurt", "garam masala", "tomato puree", "butter", "cream", "garlic", "ginger"],
+      "ingredientItems": [
+        { "name": "chicken", "quantity": 1.5, "unit": "lb" },
+        { "name": "yogurt", "quantity": 0.75, "unit": "cup" },
+        { "name": "garam masala", "quantity": 2, "unit": "tsp" },
+        { "name": "tomato puree", "quantity": 1.5, "unit": "cups" },
+        { "name": "butter", "quantity": 3, "unit": "tbsp" },
+        { "name": "cream", "quantity": 0.75, "unit": "cup" },
+        { "name": "garlic", "quantity": 3, "unit": "cloves" },
+        { "name": "ginger", "quantity": 1, "unit": "tbsp" }
+      ],
+      "instructions": "1. Marinate chicken in yogurt, garam masala, garlic, and ginger 30+ minutes.\n2. Sear chicken until lightly browned; set aside.\n3. In same pan, add butter and tomato puree; simmer with spices.\n4. Return chicken; simmer until cooked through.\n5. Stir in cream; adjust salt and garam masala; simmer briefly.\n6. Serve with rice or naan.",
+      "servings": 4,
+      "prepMinutes": 20,
+      "cookMinutes": 25,
+      "sourceUrl": "https://www.indianhealthyrecipes.com/butter-chicken/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Shakshuka",
+      "cuisine": "Middle Eastern",
+      "description": "Eggs poached in spicy tomato-pepper sauce.",
+      "imageUrl": "https://downshiftology.com/wp-content/uploads/2023/12/Shakshuka-main-1-500x500.jpg",
+      "dietary": ["Vegetarian", "Gluten-Free"],
+      "ingredients": ["egg", "tomatoes", "bell pepper", "onion", "garlic", "paprika", "cumin", "olive oil"],
+      "ingredientItems": [
+        { "name": "egg", "quantity": 4, "unit": "eggs" },
+        { "name": "tomatoes", "quantity": 2, "unit": "cups crushed" },
+        { "name": "bell pepper", "quantity": 1, "unit": "medium" },
+        { "name": "onion", "quantity": 0.5, "unit": "medium" },
+        { "name": "garlic", "quantity": 3, "unit": "cloves" },
+        { "name": "paprika", "quantity": 1, "unit": "tsp" },
+        { "name": "cumin", "quantity": 1, "unit": "tsp" },
+        { "name": "olive oil", "quantity": 2, "unit": "tbsp" }
+      ],
+      "instructions": "1. Sauté onion and bell pepper in olive oil until soft; add garlic.\n2. Stir in paprika and cumin; cook briefly.\n3. Add crushed tomatoes; simmer 10 minutes to thicken; season.\n4. Make wells; crack eggs into wells.\n5. Cover and cook until whites set and yolks are still runny.\n6. Serve with herbs and crusty bread if desired.",
+      "servings": 3,
+      "prepMinutes": 10,
+      "cookMinutes": 15,
+      "sourceUrl": "https://downshiftology.com/recipes/shakshuka/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Bibimbap",
+      "cuisine": "Korean",
+      "description": "Mixed rice bowl with veggies, beef, egg, and gochujang.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Dolsot-bibimbap.jpg",
+      "dietary": ["Dairy-Free"],
+      "ingredients": ["rice", "spinach", "bean sprouts", "carrot", "shiitake", "beef", "egg", "gochujang", "sesame oil"],
+      "ingredientItems": [
+        { "name": "rice", "quantity": 4, "unit": "cups cooked" },
+        { "name": "spinach", "quantity": 2, "unit": "cups" },
+        { "name": "bean sprouts", "quantity": 2, "unit": "cups" },
+        { "name": "carrot", "quantity": 1, "unit": "medium" },
+        { "name": "shiitake", "quantity": 1, "unit": "cup sliced" },
+        { "name": "beef", "quantity": 0.75, "unit": "lb" },
+        { "name": "egg", "quantity": 4, "unit": "eggs" },
+        { "name": "gochujang", "quantity": 4, "unit": "tbsp" },
+        { "name": "sesame oil", "quantity": 2, "unit": "tbsp" }
+      ],
+      "instructions": "1. Cook rice; keep warm.\n2. Sauté vegetables separately with a little oil and salt: spinach, sprouts, carrot, mushrooms.\n3. Cook sliced beef with soy, sugar, garlic; set aside.\n4. Fry eggs sunny-side up.\n5. Arrange rice in bowls; top with veggies, beef, and egg.\n6. Serve with gochujang and a drizzle of sesame oil; mix before eating.",
+      "servings": 4,
+      "prepMinutes": 25,
+      "cookMinutes": 20,
+      "sourceUrl": "https://mykoreankitchen.com/bibimbap-korean-mixed-rice-with-meat-and-assorted-vegetables/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Grilled Cheese",
+      "cuisine": "American",
+      "description": "Classic buttery grilled cheese sandwich with a perfectly crisp golden crust and melty cheese center.",
+      "imageUrl": "https://natashaskitchen.com/wp-content/uploads/2021/08/Grilled-Cheese-Sandwich-SQ.jpg",
+      "dietary": ["Vegetarian"],
+      "ingredients": [
+        "bread",
+        "butter",
+        "cheese"
+      ],
+      "ingredientItems": [
+        { "name": "bread", "quantity": 4, "unit": "slices" },
+        { "name": "butter", "quantity": 2, "unit": "tbsp" },
+        { "name": "cheese", "quantity": 4, "unit": "slices" }
+      ],
+      "instructions": "1. Heat a skillet over medium-low heat.\n2. Butter one side of each bread slice evenly.\n3. Place one slice, buttered side down, on the skillet; add cheese slices on top.\n4. Top with the second slice of bread, buttered side up.\n5. Cook slowly 2–3 minutes per side, pressing gently with a spatula, until bread is golden and cheese fully melts.\n6. For extra crispiness, spread a thin layer of mayo on the outside before grilling instead of butter.\n7. Slice in half and serve hot.",
+      "servings": 2,
+      "prepMinutes": 5,
+      "cookMinutes": 6,
+      "sourceUrl": "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/",
+      "owner": "admin@foo.com"
+    },
+    {
+      "title": "Pho Ga",
+      "cuisine": "Vietnamese",
+      "description": "Light chicken broth with rice noodles and herbs.",
+      "imageUrl": "https://delightfulplate.com/wp-content/uploads/2019/04/Pho-Ga-Hanoi-Vietnamese-Chicken-Noodle-Soup.jpg",
+      "dietary": ["Dairy-Free", "Gluten-Free"],
+      "ingredients": ["chicken", "rice noodles", "onion", "ginger", "star anise", "cinnamon", "fish sauce", "scallion", "cilantro"],
+      "ingredientItems": [
+        { "name": "chicken", "quantity": 2, "unit": "lb" },
+        { "name": "rice noodles", "quantity": 8, "unit": "oz" },
+        { "name": "onion", "quantity": 1, "unit": "large" },
+        { "name": "ginger", "quantity": 2, "unit": "inches" },
+        { "name": "star anise", "quantity": 3, "unit": "pods" },
+        { "name": "cinnamon", "quantity": 1, "unit": "stick" },
+        { "name": "fish sauce", "quantity": 3, "unit": "tbsp" },
+        { "name": "scallion", "quantity": 3, "unit": "stalks" },
+        { "name": "cilantro", "quantity": 0.25, "unit": "cup" }
+      ],
+      "instructions": "1. Char onion and ginger; simmer with chicken, star anise, and cinnamon to make broth; skim.\n2. Remove chicken when done; shred; season broth with fish sauce and salt.\n3. Soak/cook rice noodles per package; drain.\n4. Assemble bowls with noodles, shredded chicken, and hot broth.\n5. Top with scallions and cilantro; serve with lime and chili.",
+      "servings": 4,
+      "prepMinutes": 20,
+      "cookMinutes": 60,
+      "sourceUrl": "https://www.recipetineats.com/vietnamese-chicken-pho-soup-pho-ga/",
+      "owner": "admin@foo.com"
+    }
+  ]
+}

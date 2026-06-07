@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--prussian-blue);
+  color: var(--timberwolf);
+}
+
+.video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 2px solid var(--light-blue);
+}
+
+.closeButton {
+  margin-top: 1rem;
+  background-color: var(--light-blue);
+  border-color: var(--sage);
+  color: var(--timberwolf);
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: var(--light-blue);
+}
+
+.errorText {
+  color: #FF6B6B;
+}
