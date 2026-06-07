@@ -59,11 +59,10 @@ export default function AddProduceModal({ show, onHide, produce }: AddProduceMod
   const [locations, setLocations] = useState<string[]>([]);
   const [storageOptions, setStorageOptions] = useState<string[]>([]);
 
-  const unitOptions = useMemo(
-    () => ['kg', 'g', 'lb', 'oz', 'pcs', 'ml', 'l', 'Other'],
-    [],
-  );
-
+const unitOptions = useMemo(
+  () => ['G', 'OZ', 'LB', 'ML', 'CUP', 'ITEM'],
+  [],
+);
   const router = useRouter();
 
   const {
@@ -178,17 +177,19 @@ export default function AddProduceModal({ show, onHide, produce }: AddProduceMod
   const onSubmit: SubmitHandler<ProduceValues> = async (data) => {
     try {
       // Normalize payload for your DB action.
-      const payload = {
+      const image = typeof data.image === 'string' ? data.image.trim() : '';
+
+        const payload = {
         ...data,
-        quantity: Number(data.quantityValue), // rename
-        unit: data.quantityUnit,              // rename
+        quantity: Number(data.quantityValue),
+        unit: data.quantityUnit,
         expiration: data.expiration ? new Date(data.expiration) : null,
-        image: data.image.trim() === '' ? null : data.image.trim(),
+        image: image === '' ? null : image,
         restockThreshold:
-          data.restockThreshold == null || Number.isNaN(Number(data.restockThreshold))
-            ? 0
-            : Number(data.restockThreshold),
-      };
+        data.restockThreshold == null || Number.isNaN(Number(data.restockThreshold))
+      ? 0
+      : Number(data.restockThreshold),
+};
       await addProduce(payload);
 
       await swal('Success', 'Your item has been added', 'success', { timer: 2000 });
